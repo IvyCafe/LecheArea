@@ -8,10 +8,22 @@ public partial class Control : Sprite2D
 	{
 	}
 
+	float amount;
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		float amount = 5;
+		// Moving speed
+		if (Input.IsKeyPressed(Key.Shift))
+		{
+			amount = 10;
+		}
+		else
+		{
+			amount = 5;
+		}
+
+		// Move the godot icon
 		if (Input.IsKeyPressed(Key.W))
 		{
 			Position += new Vector2(0, -amount);
