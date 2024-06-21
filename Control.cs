@@ -8,12 +8,11 @@ public partial class Control : Sprite2D
 	{
 	}
 
-	float amount;
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		// Moving speed
+		float amount;
 		if (Input.IsKeyPressed(Key.Shift))
 			amount = 10;
 		else
