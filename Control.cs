@@ -1,31 +1,16 @@
 using Godot;
 using System;
 
-public partial class Control : Sprite2D
+public partial class Control : CharacterBody2D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+	// https://docs.godotengine.org/en/4.2/tutorials/2d/2d_movement.html#way-movement
+    [Export]
+    public int Speed { get; set; } = 400;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		// Moving speed
-		float amount;
-		if (Input.IsKeyPressed(Key.Shift))
-			amount = 10;
-		else
-			amount = 5;
-
-		// Move the godot icon
-		if (Input.IsKeyPressed(Key.W))
-			Position += new Vector2(0, -amount);
-		if (Input.IsKeyPressed(Key.A))
-			Position += new Vector2(-amount, 0);
-		if (Input.IsKeyPressed(Key.S))
-			Position += new Vector2(0, amount);
-		if (Input.IsKeyPressed(Key.D))
-			Position += new Vector2(amount, 0);
-	}
+    public override void _PhysicsProcess(double delta)
+    {
+        Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
+        Velocity = inputDirection * Speed;
+        MoveAndSlide();
+    }
 }
