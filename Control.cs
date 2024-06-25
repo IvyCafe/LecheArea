@@ -9,6 +9,12 @@ public partial class Control : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
+		// Change character speed
+		if (Input.IsKeyPressed(Key.Shift))
+			Speed = 600;
+		else
+			Speed = 400;
+
         Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
         Velocity = inputDirection * Speed;
         MoveAndSlide();
