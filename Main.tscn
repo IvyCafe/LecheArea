@@ -4,29 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://css0rjtenf66w" path="res://icon.svg" id="1_phq14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc3nx"]
-size = Vector2(126, 115)
+size = Vector2(128, 128)
 
 [node name="Root" type="Node"]
 
 [node name="MainCharacterBody" type="CharacterBody2D" parent="."]
-position = Vector2(281, 292)
+position = Vector2(567, 325)
 script = ExtResource("1_171w7")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainCharacterBody"]
-position = Vector2(2, 3)
 texture = ExtResource("1_phq14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacterBody"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_mc3nx")
 
 [node name="SubCharacterBody" type="CharacterBody2D" parent="."]
-position = Vector2(524, 372)
+position = Vector2(226, 508)
 
 [node name="Sprite2D" type="Sprite2D" parent="SubCharacterBody"]
-position = Vector2(18, 11)
 texture = ExtResource("1_phq14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubCharacterBody"]
-position = Vector2(16, 8.5)
 shape = SubResource("RectangleShape2D_mc3nx")
